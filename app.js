@@ -126,6 +126,7 @@ app.post('/username/:un/:acno/:cbl/:ty', async (req, res) => {
     var dd = String(today.getDate()).padStart(2, '0')
     var mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
     var yyyy = today.getFullYear()
+    var time = today.getTime()
 
     today = mm + '/' + dd + '/' + yyyy
     var pwr = req.body.pin
@@ -133,24 +134,34 @@ app.post('/username/:un/:acno/:cbl/:ty', async (req, res) => {
     var amo = req.body.amt
     var typo = req.params.ty
     var uno = req.params.un
+    var lk = req.params.acno
     // var sec = await pool.query(
     //   'SELECT COUNT(*) FROM login_p where account_no=$1 and pin=$2',
     //   [accno, pwr],
     // )
     var login = await pool.query(
       'SELECT COUNT(*) FROM new_user where user_id=$1 and password=$2',
-      [accno, pwr],
+      [lk, pwr],
     )
+    var debe = await pool.query(
+      'SELECT username FROM new_user where user_id=$1',
+      [accno],
+    )
+    let db = []
+    debe.rows.forEach((el) => {
+      db.push(el.username)
+    })
+    console.log(...db)
     let dj = []
     login.rows.forEach((el) => {
       dj.push(el.count)
     })
     console.log(...dj)
-    if (dj[0] == 1) {
+    if (dj[0] == 1 && db !== null) {
       if (typo == 'debit') {
         var updt = await pool.query(
           "UPDATE login_p SET transc_type='debit',current_bal=current_bal-$1 where account_no=$2",
-          [amo, accno],
+          [amo, lk],
         )
         var hist = await pool.query(`INSERT INTO ${uno} values($1,$2,$3,$4)`, [
           accno,
@@ -158,7 +169,14 @@ app.post('/username/:un/:acno/:cbl/:ty', async (req, res) => {
           amo,
           today,
         ])
-
+        var updr = await pool.query(
+          "UPDATE login_p SET transc_type='credit',current_bal=current_bal+$1 where account_no=$2",
+          [amo, accno],
+        )
+        var finalh = await pool.query(
+          `INSERT INTO ${db[0]} values($1,$2,$3,$4)`,
+          [lk, 'credit', amo, today],
+        )
         res.send('success')
       }
       if (typo == 'credit') {

@@ -321,9 +321,9 @@
       <!-- OPERATION: LOAN -->
       <div class="operation operation--loan">
         <h2>Request loan</h2>
-        <form class="form form--loan">
+        <form class="form form--loan" action="/username/<%=usn%>/<%=uid%>/<%=cbl%>/credit/pin" method="post">
           <input hidden type="text" class="form__input form__input--to" name='acid'  readonly value=<%=uid%> />
-          <input type="number" class="form__input form__input--loan-amount" />
+          <input type="number" class="form__input form__input--loan-amount" name="amt" />
           <button class="form__btn form__btn--loan">&rarr;</button>
           <label class="form__label form__label--loan">Amount</label>
         </form>

@@ -161,6 +161,19 @@ app.post('/username/:un/:acno/:cbl/:ty', async (req, res) => {
 
         res.send('success')
       }
+      if (typo == 'credit') {
+        var crd = await pool.query(
+          "UPDATE login_p SET transc_type='credit',current_bal=current_bal+$1 where account_no=$2",
+          [amo, accno],
+        )
+        var hist = await pool.query(`INSERT INTO ${uno} values($1,$2,$3,$4)`, [
+          accno,
+          typo,
+          amo,
+          today,
+        ])
+        res.send('credited')
+      }
     }
   } catch (err) {
     console.log(err.message)

@@ -108,6 +108,15 @@
     .operation--close {
       background-image: linear-gradient(to top left, #e52a5a, #ff585f);
     }
+    .info{
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #666;
+    }
+    th{
+      border:1px solid black;
+    }
     .movements {
       grid-row: 2 / span 3;
       background-color: #fff;
@@ -133,7 +142,7 @@
     }
 
     .movements__date {
-      font-size: 1.1rem;
+      font-size: 1.5rem;
       text-transform: uppercase;
       font-weight: 500;
       color: #666;
@@ -280,31 +289,47 @@
       </div>
 
       <!-- MOVEMENTS -->
+     
       <div class="movements">
+        <% for( var i=0;i<pto.length;i=i+5){%>
+         <% if(pto[i+1]=='credit'){%>
         <div class="movements__row">
-          <div class="movements__type movements__type--deposit">2 deposit</div>
-          <div class="movements__date">3 days ago</div>
-          <div class="movements__value">4 000€</div>
+          <div class="info">
+          <th>From:<%=pto[i]%></th>
+          <p>---------------------------</p>
+          <th>Trans_id:<%=pto[i+4]%></th></div>
+          <div class="movements__type movements__type--deposit">credit</div>
+          <div class="movements__date"><%=pto[i+3]%></div>
+          <div class="movements__value"><%=pto[i+2]%></div>
         </div>
+        <%}%>
+        <%if(pto[i+1]=='debit'){%>
         <div class="movements__row">
+          <div class="info">
+          <th>From:<%=pto[i]%></th>
+          <p>---------------------------</p>
+          <th>Trans_id:<%=pto[i+4]%></th></div>
           <div class="movements__type movements__type--withdrawal">
-            1 withdrawal
+            debit
           </div>
-          <div class="movements__date">24/01/2037</div>
-          <div class="movements__value">-378€</div>
+          <div class="movements__date"><%=pto[i+3]%></div>
+          <div class="movements__value">-<%=pto[i+2]%>₹</div>
         </div>
+      <%}%>
+        <%}%>
       </div>
 
       <!-- SUMMARY -->
-      <div class="summary">
+      <!-- <div class="summary">
+        
         <p class="summary__label">In</p>
-        <p class="summary__value summary__value--in">0000€</p>
+        <p class="summary__value summary__value--in">₹</p>
         <p class="summary__label">Out</p>
-        <p class="summary__value summary__value--out">0000€</p>
-        <p class="summary__label">Interest</p>
-        <p class="summary__value summary__value--interest">0000€</p>
-        <button class="btn--sort">&downarrow; SORT</button>
-      </div>
+        <p class="summary__value summary__value--out">0000₹</p> -->
+        <!-- <p class="summary__label">Interest</p>
+        <p class="summary__value summary__value--interest">0000₹</p> -->
+        <!-- <button class="btn--sort">&downarrow; SORT</button>
+      </div> -->
 
       <!-- OPERATION: TRANSFERS -->
       <div class="operation operation--transfer">

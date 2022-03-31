@@ -83,8 +83,18 @@ app.post('/login/user', async (req, res) => {
       'SELECT *,COUNT(*) FROM login_p where username=$1 and pin=$2 GROUP BY account_no',
       [acno, pd],
     )
+    var updthist = await pool.query(`SELECT * FROM ${acno}`)
+    console.log(updthist.rows)
+    let pt = []
 
-    console.log(acno, pd, login.rows)
+    updthist.rows.forEach((el) => {
+      pt.push(el.account_id),
+        pt.push(el.transc_desc),
+        pt.push(el.trans_amount),
+        pt.push(el.tsmp),
+        pt.push(el.trans_id)
+    })
+    // console.log(acno, pd, login.rows)
     let rl = []
     let accno = []
     let un = []
@@ -95,8 +105,9 @@ app.post('/login/user', async (req, res) => {
       un.push(el.username)
       cb.push(el.current_bal)
     })
+    console.log(...pt)
     if (rl == 1) {
-      res.render('transact', { uid: accno, usn: un, cbl: cb })
+      res.render('transact', { uid: accno, usn: un, cbl: cb, pto: pt })
     }
   } catch (err) {
     console.log(err.message)

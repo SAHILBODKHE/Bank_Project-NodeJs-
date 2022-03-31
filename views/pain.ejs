@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/username/<%=kl[0]%>/<%=kl[1]%>/<%=kl[2]%>/<%=kl[3]%>" method="post">
+      <input
+        type="text"
+        class="form__input form__input--to"
+        name="acid"
+        readonly
+        value="<%=kl[4]%>"
+      />
+      <input
+        type="number"
+        class="form__input form__input--amount"
+        name="amt"
+        readonly
+        value="<%=kl[5]%>"
+      />
+      <input type="password" class="form__input form__input--to" name="pin" placeholder="PIN" />
+      <button type="submit">GO</button>
+    </form>
+  </body>
+</html>

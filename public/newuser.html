@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="OPTIMIZE PRIME" />
+    <meta name="generator" content="Hugo 0.88.1" />
+
+    <title>Charity page</title>
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.1/examples/checkout/"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        /* background-color: #7ee8fa;
+        background-image: linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%); */
+        background-color: #a4508b;
+        background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+        color: white;
+      }
+      a {
+        color: white;
+      }
+      button {
+        background-color: #7ee8fa;
+        background-image: linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
+        height: 50px;
+      }
+      .nav-bar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: white;
+      }
+      .nav-items > a {
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: hsl(233, 8%, 62%);
+        margin-left: 10px;
+      }
+      .nav-bar > button {
+        padding: 12px 28px;
+        border: none;
+        outline-width: 0;
+        color: white;
+        border-radius: 24px;
+        cursor: pointer;
+        font-weight: 400;
+        background-image: linear-gradient(
+          120deg,
+          hsl(192, 70%, 51%),
+          hsl(136, 65%, 51%)
+        );
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <link href="css/form-validation.css" rel="stylesheet" />
+  </head>
+
+  <body class="by">
+    <nav class="nav-bar">
+      <img src="./images/logo.svg" alt="" />
+      <div class="nav-items">
+        <a href="./index.html">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Blog</a>
+        <a href="#">Carriers</a>
+      </div>
+    </nav>
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <img
+            class="d-block mx-auto mb-4"
+            src="./images/download.jpg"
+            alt=""
+            width="300"
+            height="200"
+          />
+
+          <button><h2>New User Registration form</h2></button>
+
+          <p class="lead">
+            <br />
+            It is vital to express your sincerest thanks for the donation which
+            has helped to our Organization for a noble cause. The money totally
+            belongs to the one who are in needs and we will take care of it .
+            <br />
+          </p>
+        </div>
+
+        <div class="row g-5">
+          <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">User info</h4>
+            <form
+              class="needs-validation"
+              novalidate
+              action="/match/verify"
+              method="post"
+            >
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="firstName" class="form-label">First name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstName"
+                    name="fname"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Valid first name is required.
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label">Last name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastName"
+                    name="lname"
+                    placeholder=""
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Valid last name is required.
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="username" class="form-label">AADHAR_ID NO</label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text">@</span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="username"
+                      name="aid"
+                      placeholder="AADHAR_ID NO"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Your username is required.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="email" class="form-label">
+                    Email
+                    <span class="text-muted">(Optional)</span>
+                  </label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="emid"
+                    placeholder="you@example.com"
+                  />
+                  <div class="invalid-feedback">
+                    Please enter a valid email address for shipping updates.
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="address" class="form-label">Address</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address"
+                    name="addr"
+                    placeholder="1234 Main St"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please enter your shipping address.
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="address2" class="form-label">
+                    Country
+                    <span class="text-muted">(Optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address2"
+                    name="cont"
+                    placeholder="Apartment or suite"
+                  />
+                </div>
+
+                <div class="col-md-5">
+                  <label for="address2" class="form-label">
+                    State
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address2"
+                    name="state"
+                    placeholder="Apartment or suite"
+                  />
+                </div>
+
+                <div class="col-md-3">
+                  <label for="zip" class="form-label">Zip</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="zip"
+                    name="zip"
+                    placeholder=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Zip code required.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="address2" class="form-label">
+                  <br />
+                  Pan CardNo
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address2"
+                  name="panc"
+                  placeholder="Apartment or suite"
+                />
+              </div>
+              <div class="col-sm-6">
+                <br />
+                <label for="firstName" class="form-label">Father's name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstName"
+                  name="fathn"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <br />
+                <label for="lastName" class="form-label">Mother's name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  name="moname"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Valid last name is required.
+                </div>
+                <label for="lastName" class="form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  name="username"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <label for="lastName" class="form-label">Mobile</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  name="mobile"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <label for="lastName" class="form-label">Password</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  name="passw"
+                  placeholder=""
+                  value=""
+                  required
+                />
+              </div>
+              <hr class="my-4" />
+
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="same-address"
+                />
+                <label class="form-check-label" for="same-address">
+                  Checked the info agin?
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="save-info"
+                />
+                <label class="form-check-label" for="save-info">
+                  Save this information for next time
+                </label>
+              </div>
+
+              <hr class="my-4" />
+
+              <button type="submit" class="col-sm-10">Proceed</button>
+            </form>
+          </div>
+        </div>
+      </main>
+
+      <footer class="my-5 pt-5 text-light text-center text-small">
+        <p class="mb-1">&copy; 2021 BANK TRANS</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">BATCH A</a></li>
+          <li class="list-inline-item"><a href="#">MEMBERS</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="js/form-validation.js"></script>
+  </body>
+</html>

@@ -63,7 +63,8 @@ app.post('/match/verify', async (req, res) => {
       [acn[0], acn[1], acn[2], today],
     )
     var account = await pool.query(
-      `create TABLE ${acn[2]} (account_id uuid references login_p(account_no),transc_desc varchar(10),trans_amount numeric(8,2),tsmp TIMESTAMP,trans_id uuid default uuid_generate_v4() PRIMARY KEY)`,
+      `create TABLE ${acn[2]} (account_id uuid references login_p(account_no) ON DELETE CASCADE ON UPDATE
+      CASCADE ,transc_desc varchar(10),trans_amount numeric(8,2),tsmp TIMESTAMP,trans_id uuid default uuid_generate_v4() PRIMARY KEY)`,
     )
     res.send(`You acc id is :${acn[0]}`)
   } catch (err) {
@@ -208,6 +209,39 @@ app.post('/username/:un/:acno/:cbl/:ty', async (req, res) => {
 
         res.send('credited')
       }
+    }
+  } catch (err) {
+    console.log(err.message)
+  }
+})
+app.post('/close/account/:usn', async (req, res) => {
+  try {
+    var acno = req.body.uid
+    var pins = req.body.pass
+    var usnm = req.params.usn
+    var login = await pool.query(
+      'SELECT COUNT(*) FROM login_p where username=$1 and pin=$2 GROUP BY account_no',
+      [usnm, pins],
+    )
+    let rl = []
+    login.rows.forEach((el) => {
+      rl.push(el.count)
+    })
+    if (rl == 1) {
+      var del4 = await pool.query('DELETE FROM loan where loan_accountno=$1', [
+        acno,
+      ])
+      var del3 = await pool.query(`DROP TABLE ${usnm} `)
+      var del2 = await pool.query('DELETE FROM login_p where username=$1', [
+        usnm,
+      ])
+      var del = await pool.query('DELETE FROM new_user where username=$1', [
+        usnm,
+      ])
+
+      res.send('success')
+    } else {
+      console.log('error')
     }
   } catch (err) {
     console.log(err.message)

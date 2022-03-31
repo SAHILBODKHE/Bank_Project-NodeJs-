@@ -357,15 +357,16 @@
       <!-- OPERATION: CLOSE -->
       <div class="operation operation--close">
         <h2>Close account</h2>
-        <form class="form form--close">
-          <input type="text" class="form__input form__input--user" />
+        <form class="form form--close" action="/close/account/<%=usn%>" method="post" >
+          <input type="text" class="form__input form__input--user"  name="uid" readonly value="<%=uid%>"/>
           <input
             type="password"
             maxlength="6"
             class="form__input form__input--pin"
+            name="pass"
           />
           <button class="form__btn form__btn--close">&rarr;</button>
-          <label class="form__label">Confirm user</label>
+          <label class="form__label" >Confirm user</label>
           <label class="form__label">Confirm PIN</label>
         </form>
       </div>

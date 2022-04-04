@@ -189,7 +189,7 @@ app.post('/username/:un/:acno/:cbl/:ty', async (req, res) => {
           `INSERT INTO ${db[0]} values($1,$2,$3,$4)`,
           [lk, 'credit', amo, today],
         )
-        res.send('success')
+        res.render('sucess')
       }
       if (typo == 'credit') {
         var crd = await pool.query(
@@ -207,7 +207,7 @@ app.post('/username/:un/:acno/:cbl/:ty', async (req, res) => {
           today,
         ])
 
-        res.send('credited')
+        res.render('sucess')
       }
     }
   } catch (err) {
@@ -239,7 +239,7 @@ app.post('/close/account/:usn', async (req, res) => {
         usnm,
       ])
 
-      res.send('success')
+      res.render('sucess')
     } else {
       console.log('error')
     }

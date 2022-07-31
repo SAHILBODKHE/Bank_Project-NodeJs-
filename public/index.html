@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <title>Easybank</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <style>
     a {
@@ -14,7 +20,10 @@
   </style>
   <body>
     <nav class="nav-bar">
-      <img src="./images/logo.svg" alt="" />
+      <div class="a1">
+        <img src="./img/logotree.jpg" style="size: 10px 10px;" alt="" />
+        Grow Bank
+      </div>
       <div class="nav-items">
         <a href="#">Home</a>
         <a href="#">About</a>
@@ -24,28 +33,154 @@
       </div>
       <button><a href="./newuser.html">New User</a></button>
     </nav>
-    <header class="hero-section">
-      <div class="hero-text-container">
-        <h1>
-          Next generation
-          <br />
-          digital banking
-        </h1>
-        <p>
-          Take your financial life online. Your easy bank account
-          <br />
-          will be a one-stop-shop for spending,saving,
-          <br />
-          budgeting,investing, and much more.
-        </p>
-        <button>
-          <a class="nav__link nav__link--btn btn--show-modal" href="#">Login</a>
-        </button>
-      </div>
-      <div class="hero-img-container">
-        <img src="./images/image-mockups.png" alt="" />
-      </div>
-    </header>
+    <div class="colorad">
+      <header class="hero-section">
+        <div class="hero-text-container">
+          <h1>
+            Next generation
+            <br />
+            digital banking
+          </h1>
+          <p>
+            Take your financial life online. Your easy bank account
+            <br />
+            will be a one-stop-shop for spending,saving,
+            <br />
+            budgeting,investing, and much more.
+          </p>
+
+          <button>
+            <a
+              class="nav__link nav__link--btn btn--show-modal"
+              href="#"
+              style="
+                background-color: #42378f;
+                background-image: linear-gradient(
+                  315deg,
+                  #42378f 0%,
+                  #f53844 74%
+                );
+                color: white;
+                font-family: 'Anton', sans-serif;
+                width: 137px;
+                font-size: xx-large;
+              "
+            >
+              Login
+            </a>
+          </button>
+          <button>
+            <a
+              class="nav__link nav__link--btn btn--show-modal"
+              href="#"
+              style="
+                background-color: #42378f;
+                background-image: linear-gradient(
+                  315deg,
+                  #42378f 0%,
+                  #f53844 74%
+                );
+                color: white;
+                font-family: 'Anton', sans-serif;
+                width: 137px;
+                font-size: xx-large;
+              "
+            >
+              SignUp
+            </a>
+          </button>
+        </div>
+        <div class="hero-img-container">
+          <img src="./images/image-mockups.png" alt="" />
+        </div>
+      </header>
+      <!-- <section class="news">
+        <div class="card">
+          <div class="card-image"></div>
+          <div class="card-text">
+            <span class="date">4 days ago</span>
+            <h2>Post One</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae
+              temporibus omnis illum maxime quod deserunt eligendi dolor
+            </p>
+          </div>
+          <div class="card-stats">
+            <div class="stat">
+              <div class="value">
+                4
+                <sup>m</sup>
+              </div>
+              <div class="type">read</div>
+            </div>
+            <div class="stat border">
+              <div class="value">5123</div>
+              <div class="type">views</div>
+            </div>
+            <div class="stat">
+              <div class="value">32</div>
+              <div class="type">comments</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image card2"></div>
+          <div class="card-text card2">
+            <span class="date">1 week ago</span>
+            <h2>Post Two</h2>
+            <p>
+              Adipisicing elit. Ducimus, repudiandae corrupti amet temporibus
+              omnis provident illum maxime quod. Lorem ipsum dolor
+            </p>
+          </div>
+          <div class="card-stats card2">
+            <div class="stat">
+              <div class="value">
+                7
+                <sup>m</sup>
+              </div>
+              <div class="type">read</div>
+            </div>
+            <div class="stat border">
+              <div class="value">7152</div>
+              <div class="type">views</div>
+            </div>
+            <div class="stat">
+              <div class="value">21</div>
+              <div class="type">comments</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image card3"></div>
+          <div class="card-text card3">
+            <span class="date">3 week ago</span>
+            <h2>Post Three</h2>
+            <p>
+              Repudiandae corrupti amet temporibus omnis provident illum maxime.
+              Ducimus, lorem ipsum dolor adipisicing elit
+            </p>
+          </div>
+          <div class="card-stats card3">
+            <div class="stat">
+              <div class="value">
+                5
+                <sup>m</sup>
+              </div>
+              <div class="type">read</div>
+            </div>
+            <div class="stat border">
+              <div class="value">3021</div>
+              <div class="type">views</div>
+            </div>
+            <div class="stat">
+              <div class="value">15</div>
+              <div class="type">comments</div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+    </div>
     <div class="container">
       <section class="why-us">
         <h1>Why choose Easybank?</h1>
@@ -109,6 +244,92 @@
             <br />
             never been easier.
           </p>
+        </div>
+      </section>
+      <section class="news">
+        <div class="card">
+          <div class="card-image"></div>
+          <div class="card-text">
+            <span class="date">4 days ago</span>
+            <h2>Post One</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae
+              temporibus omnis illum maxime quod deserunt eligendi dolor
+            </p>
+          </div>
+          <div class="card-stats">
+            <div class="stat">
+              <div class="value">
+                4
+                <sup>m</sup>
+              </div>
+              <div class="type">read</div>
+            </div>
+            <div class="stat border">
+              <div class="value">5123</div>
+              <div class="type">views</div>
+            </div>
+            <div class="stat">
+              <div class="value">32</div>
+              <div class="type">comments</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image card2"></div>
+          <div class="card-text card2">
+            <span class="date">1 week ago</span>
+            <h2>Post Two</h2>
+            <p>
+              Adipisicing elit. Ducimus, repudiandae corrupti amet temporibus
+              omnis provident illum maxime quod. Lorem ipsum dolor
+            </p>
+          </div>
+          <div class="card-stats card2">
+            <div class="stat">
+              <div class="value">
+                7
+                <sup>m</sup>
+              </div>
+              <div class="type">read</div>
+            </div>
+            <div class="stat border">
+              <div class="value">7152</div>
+              <div class="type">views</div>
+            </div>
+            <div class="stat">
+              <div class="value">21</div>
+              <div class="type">comments</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image card3"></div>
+          <div class="card-text card3">
+            <span class="date">3 week ago</span>
+            <h2>Post Three</h2>
+            <p>
+              Repudiandae corrupti amet temporibus omnis provident illum maxime.
+              Ducimus, lorem ipsum dolor adipisicing elit
+            </p>
+          </div>
+          <div class="card-stats card3">
+            <div class="stat">
+              <div class="value">
+                5
+                <sup>m</sup>
+              </div>
+              <div class="type">read</div>
+            </div>
+            <div class="stat border">
+              <div class="value">3021</div>
+              <div class="type">views</div>
+            </div>
+            <div class="stat">
+              <div class="value">15</div>
+              <div class="type">comments</div>
+            </div>
+          </div>
         </div>
       </section>
       <section class="blog-section">
